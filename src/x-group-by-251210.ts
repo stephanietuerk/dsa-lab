@@ -16,25 +16,25 @@ function groupBy<T, K extends string | number>(
 }
 
 interface State {
-  abbrev: string;
+  id: string;
   name: string;
 }
 
 const items1: State[] = [
-  { abbrev: "AL", name: "Alabama" },
-  { abbrev: "AK", name: "Alaska" },
-  { abbrev: "AZ", name: "Arizona" },
-  { abbrev: "AR", name: "Arkansas" },
-  { abbrev: "CA", name: "California" },
-  { abbrev: "CO", name: "Colorado" },
-  { abbrev: "CT", name: "Connecticut" },
-  { abbrev: "DE", name: "Delaware" },
-  { abbrev: "FL", name: "Florida" },
-  { abbrev: "GA", name: "Georgia" },
+  { id: "AL", name: "Alabama" },
+  { id: "AK", name: "Alaska" },
+  { id: "AZ", name: "Arizona" },
+  { id: "AR", name: "Arkansas" },
+  { id: "CA", name: "California" },
+  { id: "CO", name: "Colorado" },
+  { id: "CT", name: "Connecticut" },
+  { id: "DE", name: "Delaware" },
+  { id: "FL", name: "Florida" },
+  { id: "GA", name: "Georgia" },
 ];
 
 const test1 = groupBy(items1, (item: State, index: number) =>
-  ["a", "e", "i", "o", "u"].includes(item.abbrev[1].toLowerCase())
+  ["a", "e", "i", "o", "u"].includes(item.id[1].toLowerCase())
     ? "endsWithVowel"
     : "endsWithConsonant"
 );

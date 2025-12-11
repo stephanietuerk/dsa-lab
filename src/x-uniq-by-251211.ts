@@ -1,14 +1,11 @@
-function uniqBy<T extends Record<string, unknown>>(
-  items: T[],
-  getKey: (item: T, index?: number) => string
-): T[] {
-  const uniq = new Set<string>();
+function uniqBy<K, T>(items: T[], getKey: (item: T, index?: number) => K): T[] {
+  const keys = new Set<K>();
   const uniqued: T[] = [];
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     const key = getKey(item, i);
-    if (!uniq.has(key)) {
-      uniq.add(key);
+    if (!keys.has(key)) {
+      keys.add(key);
       uniqued.push(item);
     }
   }
